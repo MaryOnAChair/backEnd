@@ -2,6 +2,7 @@ package entities;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 public class Vacation {
     private Long id;
@@ -9,7 +10,7 @@ public class Vacation {
     private BigDecimal travelPrice;
     private String imageUrl;
     private Date createDate,lastUpdate;
-    private excursions Set<Excussion>;
+    private Set<Excursion> Excursion;
 
     Vacation(){}
 }

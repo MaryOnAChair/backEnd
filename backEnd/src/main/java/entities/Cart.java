@@ -8,21 +8,38 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "Cart")
+@Table(name = "Carts")
 @Data
 public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id");
-    private Long id;
+    @Column(name = "cart_id")
+    private Long Id;
 
+    @Column(name = "order_tracking_number")
     private String orderTrackingNumber;
-    private BigDecimal packagePrice;
-    private Integer partySize;
-    private Date createDate,lastUpdate;
-    private Customer customer;
-    private Set<CartItem> cartUten;
 
-    Cart(){}
+    @Column(name = "package_price")
+    private BigDecimal packagePrice;
+
+    @Column(name = "party_size")
+    private Integer partySize;
+
+    @Column(name = "create_date")
+    private Date createDate;
+
+    @Column(name = "last_update")
+    private Date lastUpdate;
+
+    @Column(name = "customer_id")
+    private Customer customer;
+
+    @Column(name = "status")
+    private Set<CartItem> cartIten;
+
+
+    public Cart() {
+
+    }
 }
