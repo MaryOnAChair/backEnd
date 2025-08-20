@@ -4,7 +4,10 @@ import entities.*;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
+import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+
+import javax.swing.text.html.parser.Entity;
 
 /**
  * <h1>RestDataConfig</h1>
@@ -34,6 +37,12 @@ public class RestDataConfig implements RepositoryRestConfigurer {
      */
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
+        HttpMethod[] theUnsupportedMethods = { HttpMethod.POST, HttpMethod.PUT, HttpMethod.DELETE };
+        config.getExposureConfiguration()
+                        .forDomainType(Entity.class)
+                                .withItemExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedMethods))
+                                        .withCollectionExposure((metadata, httpMethods) -> httpMethods.disable(theUnsupportedMethods));
+
         config.exposeIdsFor(Country.class);
         config.exposeIdsFor(Customer.class);
         config.exposeIdsFor(Division.class);

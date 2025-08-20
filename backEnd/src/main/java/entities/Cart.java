@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "Carts")
+@Table(name = "carts")
 @Data
 public class Cart {
 
@@ -35,9 +35,9 @@ public class Cart {
     @Column(name = "customer_id")
     private Customer customer;
 
+    @OneToMany
     @Column(name = "status")
-    private Set<CartItem> cartIten;
-
+    private Set<CartItem> item;
 
     public Cart() {
 
