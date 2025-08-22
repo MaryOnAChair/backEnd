@@ -2,6 +2,8 @@ package entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -21,10 +23,24 @@ public class Vacation {
     @Column(name = "vacation_id")
     private Long id;
 
-    private String vacationTitle,description;
+    @Column(name = "vacation_title")
+    private String vacation_title;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "travel_fare_price")
     private BigDecimal travelPrice;
+
+    @Column(name = "image_url")
     private String imageUrl;
-    private Date createDate,lastUpdate;
-    private Set<Excursion> Excursion;
+
+    @Column(name = "create_date")
+    @CreationTimestamp
+    private Date create_date;
+
+    @Column(name = "last_update")
+    @UpdateTimestamp
+    private Date last_update;
 
 }

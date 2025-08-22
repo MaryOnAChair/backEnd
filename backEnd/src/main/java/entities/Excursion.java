@@ -2,6 +2,8 @@ package entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -21,10 +23,26 @@ public class Excursion {
     @Column(name = "excursion_id")
     private Long id;
 
-    private String excussionTitle;
-    private BigDecimal excussionPrice;
-    private Date createDate,lastUpdate;
+    @Column(name = "excursion_title")
+    private String excursion_title;
+
+    @Column(name = "excursion_price")
+    private BigDecimal excursion_price;
+
+    @Column(name = "create_date")
+    @CreationTimestamp
+    private Date create_date;
+
+    @Column(name = "last_update")
+    @UpdateTimestamp
+    private Date last_update;
+
+    @Column(name = "image_url")
+    private String image_url;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "vacation_id")
     private Vacation vacation;
-    private Set<CartItem> CartItem;
+
 
 }

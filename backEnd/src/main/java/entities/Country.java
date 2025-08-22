@@ -21,10 +21,11 @@ public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "country_id")
-    private long id;
+    private Long id;
 
     @Column(name = "country")
-    private String countryName;
+    private String country_name;
+
 
     @Column(name = "create_date")
     @CreationTimestamp
@@ -34,7 +35,8 @@ public class Country {
     @UpdateTimestamp
     private Date lastUpdate;
 
-   @OneToMany(cascade = CascadeType.ALL,mappedBy = "country", fetch = FetchType.LAZY)
-   private Set<Division> divisions;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "division_id", fetch = FetchType.LAZY)
+    @JoinColumn(name = "division_id")
+    private Set<Division> division_name;
 
 }
