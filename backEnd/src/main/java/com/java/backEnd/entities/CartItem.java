@@ -1,4 +1,4 @@
-package entities;
+package com.java.backEnd.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -26,7 +26,7 @@ public class CartItem {
     private Set<Excursion> excursions;
 
     @ManyToOne
-    @JoinTable(name = "cart_items")
+    @JoinTable(name = "carts")
     private Cart cart;
 
     @Column(name = "create_date")

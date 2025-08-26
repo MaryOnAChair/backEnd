@@ -1,4 +1,4 @@
-package entities;
+package com.java.backEnd.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,7 +7,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.Set;
 
 @Entity
 @Table(name = "excursions")
@@ -37,8 +36,9 @@ public class Excursion {
     @UpdateTimestamp
     private Date last_update;
 
+
     @Column(name = "image_url")
-    private String image_url;
+    private String image_URL;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vacation_id")

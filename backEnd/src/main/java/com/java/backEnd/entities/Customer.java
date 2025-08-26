@@ -1,4 +1,4 @@
-package entities;
+package com.java.backEnd.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

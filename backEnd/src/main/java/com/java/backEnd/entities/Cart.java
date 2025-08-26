@@ -1,4 +1,4 @@
-package entities;
+package com.java.backEnd.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -43,7 +43,7 @@ public class Cart {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @Enumerated(EnumType.STRING)
+   // @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private String status;
 

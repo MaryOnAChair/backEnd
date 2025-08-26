@@ -1,4 +1,4 @@
-package entities;
+package com.java.backEnd.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Set;
 
@@ -33,7 +34,7 @@ public class Vacation {
     private BigDecimal travelPrice;
 
     @Column(name = "image_url")
-    private String imageUrl;
+    private String image_URL;
 
     @Column(name = "create_date")
     @CreationTimestamp
@@ -42,5 +43,8 @@ public class Vacation {
     @Column(name = "last_update")
     @UpdateTimestamp
     private Date last_update;
+
+    @OneToMany(mappedBy = "vacation")
+    private Collection<Excursion> excursion;
 
 }

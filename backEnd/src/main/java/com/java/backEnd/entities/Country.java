@@ -1,4 +1,4 @@
-package entities;
+package com.java.backEnd.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -35,8 +35,7 @@ public class Country {
     @UpdateTimestamp
     private Date lastUpdate;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "division_id", fetch = FetchType.LAZY)
-    @JoinColumn(name = "division_id")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "division_name", fetch = FetchType.LAZY)
     private Set<Division> division_name;
 
 }
