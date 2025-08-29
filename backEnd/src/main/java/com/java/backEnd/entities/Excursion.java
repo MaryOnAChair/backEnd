@@ -40,7 +40,7 @@ public class Excursion {
     @Column(name = "image_url")
     private String image_URL;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "vacation_id")
     private Vacation vacation;
 
