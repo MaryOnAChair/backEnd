@@ -12,7 +12,6 @@ import java.util.Set;
 
 @Entity
 @Table(name = "vacations")
-@Data
 
 @Getter
 @Setter
@@ -40,11 +39,12 @@ public class Vacation {
     @CreationTimestamp
     private Date create_date;
 
+
     @Column(name = "last_update")
     @UpdateTimestamp
     private Date last_update;
 
     @OneToMany(mappedBy = "vacation")
-    private Collection<Excursion> excursion;
+    private Set<Excursion> excursions;
 
 }

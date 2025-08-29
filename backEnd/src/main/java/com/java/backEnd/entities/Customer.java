@@ -1,16 +1,18 @@
 package com.java.backEnd.entities;
 
 import jakarta.persistence.*;
+import jakarta.persistence.criteria.Order;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.domain.Persistable;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "customers")
-@Data
 
 @Getter
 @Setter
@@ -45,12 +47,21 @@ public class Customer {
     @UpdateTimestamp
     private Date last_update;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name ="division_id")
     private Division division;
 
-    @OneToMany
+    @OneToMany(mappedBy = "customer",cascade ={CascadeType.PERSIST,CascadeType.MERGE})
     private Set<Cart> carts;
 
 
+    public void add(Cart cart) {
+        if(cart != null) {
+            if(carts == null) {
+                carts = new HashSet<>();
+            }
+            carts.add(cart);
+            cart.setCustomer(this);
+        }
+    }
 }

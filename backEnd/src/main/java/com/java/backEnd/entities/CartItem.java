@@ -2,6 +2,8 @@ package com.java.backEnd.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -10,7 +12,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "cart_items")
-@Data
+@Getter
+@Setter
 public class CartItem {
 
     @Id
@@ -22,7 +25,12 @@ public class CartItem {
     @ManyToOne
     private Vacation vacation;
 
-    @OneToMany
+    @ManyToMany
+    @JoinTable(
+            name = "excursion_cartitem",
+            joinColumns = @JoinColumn(name = "cart_item_id"),
+            inverseJoinColumns = @JoinColumn(name = "excursion_id")
+    )
     private Set<Excursion> excursions;
 
     @ManyToOne

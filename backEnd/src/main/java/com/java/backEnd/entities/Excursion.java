@@ -7,10 +7,10 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "excursions")
-@Data
 
 @Getter
 @Setter
@@ -43,6 +43,9 @@ public class Excursion {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vacation_id")
     private Vacation vacation;
+
+    @ManyToMany(mappedBy = "excursions")
+    private Set<CartItem> cartItems;
 
 
 }

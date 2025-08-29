@@ -9,12 +9,13 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "carts")
-@Data
 public class Cart {
 
     @Id
@@ -47,5 +48,17 @@ public class Cart {
     @Column(name = "status")
     private String status;
 
+    @OneToMany(mappedBy = "carts")
+    private Set<CartItem> cartItems = new HashSet<>();
 
+
+    public void add(CartItem cartItem) {
+        if (cartItem != null) {
+            if (cartItems == null) {
+                cartItems = new HashSet<>();
+            }
+            cartItems.add(cartItem);
+            cartItem.setCart(this);
+        }
+    }
 }
