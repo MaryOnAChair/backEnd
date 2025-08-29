@@ -45,8 +45,14 @@ public class CheckoutServiceImpl implements CheckoutService {
         Customer customer = purchase.getCustomer();
         customer.add(cart);
 
+        //returns error if cart is empty
+        if(purchase.getCart() == null || purchase.getCartItems() == null || cartItems.isEmpty()) {
+            return new PurchaseResponse("Error please check cart has items and try again :(");
+        }
+        else{
         //Return the order Tracking Number
         return new PurchaseResponse(orderTrackingNumber);
+    }
     }
 
     private String generateOrderTrackingNumber() {

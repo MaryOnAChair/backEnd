@@ -21,16 +21,16 @@ public class Division {
     @Column(name = "division_id")
     private Long id;
 
-    @Column(name = "Division")
+    @Column(name = "division")
     private String division_name;
 
     @Column(name = "create_date")
     @CreationTimestamp
-    private Date createDate;
+    private Date create_date;
 
     @Column(name = "last_update")
     @UpdateTimestamp
-    private Date lastUpdate;
+    private Date last_update;
 
     @Column(name="country_id")
     private Long countryId;
