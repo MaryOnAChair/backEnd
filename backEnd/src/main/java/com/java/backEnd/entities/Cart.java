@@ -49,16 +49,16 @@ public class Cart {
     private String status;
 
     @OneToMany(mappedBy = "cart")
-    private Set<CartItem> cart_items = new HashSet<>();
+    private Set<CartItem> cartItems = new HashSet<>();
 
 
-    public void add(CartItem cartItem) {
-        if (cartItem != null) {
-            if (cart_items == null) {
-                cart_items = new HashSet<>();
+    public void add(CartItem item) {
+        if (item != null) {
+            if (cartItems == null) {
+                cartItems = new HashSet<>();
             }
-            cart_items.add(cartItem);
-            cartItem.setCart(this);
+            cartItems.add(item);
+            item.setCart(this);
         }
     }
 }
