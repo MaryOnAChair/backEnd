@@ -3,6 +3,7 @@ package com.java.backEnd.entities;
 import jakarta.persistence.*;
 import jakarta.persistence.criteria.Order;
 import lombok.*;
+import org.antlr.v4.runtime.misc.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.domain.Persistable;
@@ -19,42 +20,61 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Customer {
+
+    //Customer ID
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
     private Long id;
 
-    @Column(name = "customer_first_name",nullable = false)
+    //First Name
+    @NotNull
+    @Column(name = "customer_first_name")
     private String firstName;
 
-    @Column(name = "customer_last_name" ,nullable = false)
+    //Last Name
+
+    @NotNull
+    @Column(name = "customer_last_name")
     private String lastName;
 
-    @Column(name="address" ,nullable = false)
+    //Address
+    @NotNull
+    @Column(name="address")
     private String address;
 
-    @Column(name = "postal_code" ,nullable = false)
-    private String postalCode;
+    //Zip Code
+    @NotNull
+    @Column(name = "postal_code")
+    private String postal_code;
 
-    @Column(name = "phone" ,nullable = false)
+    //Phone
+    @NotNull
+    @Column(name = "phone")
     private String phone;
 
+    //Create Date
     @Column(name ="create_date")
     @CreationTimestamp
     private Date create_date;
 
+    //Last Update
     @Column(name = "last_update")
     @UpdateTimestamp
     private Date last_update;
 
+    //Division I
+    @NotNull
     @ManyToOne
     @JoinColumn(name ="division_id")
     private Division division;
 
+    //Customer Cart
     @OneToMany(mappedBy = "customer",cascade ={CascadeType.PERSIST,CascadeType.MERGE})
     private Set<Cart> carts;
 
 
+    //Adds Cart to Customer
     public void add(Cart cart) {
         if(cart != null) {
             if(carts == null) {
@@ -64,4 +84,7 @@ public class Customer {
             cart.setCustomer(this);
         }
     }
+
 }
+
+

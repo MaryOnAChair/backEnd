@@ -1,8 +1,8 @@
 package com.java.backEnd.entities;
 
-import jakarta.persistence.Entity;
 
-
+//Sets status of cart
 public enum StatusType {
-    pending,ordered,cancelled
+    pending,ordered,cancelled;
+
 }

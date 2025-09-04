@@ -29,9 +29,9 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        //Gets divisons for each customer
+        //Gets divisions for each customer
         Division divisionJane = divisionRepository.findById(4L).get();     //California
-        Division divisionEnqique = divisionRepository.findById(3L).get();  //Arkansas
+        Division divisionEnrique = divisionRepository.findById(3L).get();  //Arkansas
         Division divisionJose = divisionRepository.findById(2L).get();     //Arizona
         Division divisionStacey = divisionRepository.findById(6L).get();   //Connecticut
         Division divisionPeter = divisionRepository.findById(5L).get();    //Colorado
@@ -81,7 +81,7 @@ public class BootStrapData implements CommandLineRunner {
 
         //Division
         jane.setDivision(divisionJane);
-        enrique.setDivision(divisionEnqique);
+        enrique.setDivision(divisionEnrique);
         jose.setDivision(divisionJose);
         stacey.setDivision(divisionStacey);
         peter.setDivision(divisionPeter);

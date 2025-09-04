@@ -1,15 +1,12 @@
 package com.java.backEnd.services;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class PurchaseResponse {
-    private String orderTrackingNumber;
+    private final String orderTrackingNumber;
 
 }
