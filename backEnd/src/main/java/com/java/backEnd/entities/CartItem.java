@@ -1,7 +1,10 @@
 package com.java.backEnd.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -34,7 +37,7 @@ public class CartItem {
     @JoinColumn(name = "cart_id")
     private Cart cart;
 
-    //Excursion Cart Items
+    //links Excursion to Cart Items
     @ManyToMany
     @JoinTable(
             name = "excursion_cartitem",

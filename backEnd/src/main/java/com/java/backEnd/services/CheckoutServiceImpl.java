@@ -2,7 +2,6 @@ package com.java.backEnd.services;
 
 import com.java.backEnd.dao.CartItemRepository;
 import com.java.backEnd.dao.CartRepository;
-import com.java.backEnd.dao.CustomerRepository;
 import com.java.backEnd.entities.Cart;
 import com.java.backEnd.entities.CartItem;
 import com.java.backEnd.entities.Customer;
@@ -11,12 +10,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.EnumSet;
 import java.util.Set;
 import java.util.UUID;
-
-import static com.java.backEnd.entities.StatusType.cancelled;
-import static com.java.backEnd.entities.StatusType.ordered;
 
 @Service
 public class CheckoutServiceImpl implements CheckoutService {

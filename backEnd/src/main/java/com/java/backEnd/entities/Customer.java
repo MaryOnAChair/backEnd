@@ -1,12 +1,13 @@
 package com.java.backEnd.entities;
 
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.Order;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.domain.Persistable;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -63,7 +64,7 @@ public class Customer {
     @UpdateTimestamp
     private Date last_update;
 
-    //Division I
+    //Division Id
     @NotNull
     @ManyToOne
     @JoinColumn(name ="division_id")

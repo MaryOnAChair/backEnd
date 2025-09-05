@@ -4,16 +4,8 @@ import com.java.backEnd.dao.CustomerRepository;
 import com.java.backEnd.dao.DivisionRepository;
 import com.java.backEnd.entities.Customer;
 import com.java.backEnd.entities.Division;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.CrossOrigin;
-
-import java.io.Console;
-
-import static java.lang.Long.getLong;
-import static java.lang.Long.valueOf;
 
 @Component
 public class BootStrapData implements CommandLineRunner {
